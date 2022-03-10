@@ -1,0 +1,312 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/uwuware-ui/main/main.lua", true))()
+local window = library:CreateWindow("Farming")
+local window2 = library:CreateWindow("Teleports")
+local window3 = library:CreateWindow("Settings")
+
+--settings 
+
+window3:AddButton({text = 'Destroy', callback = function()
+    game:GetService("CoreGui").ScreenGui:Destroy()
+end})
+
+--teleports
+
+window2:AddButton({text = 'Healing Well', callback = function()
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-105, -33, 73)
+end})
+
+window2:AddButton({text = 'Islands', callback = function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18, 48, 6140)
+end})
+
+
+--farming
+window:AddToggle({text = "Auto Swing", callback = function(bool)
+getgenv().autohit = false
+    getgenv().autohit = bool
+    if bool then 
+        autohit()
+    end
+end})
+
+window:AddToggle({text = "Auto Sell", callback = function(bool)
+    getgenv().sell = false
+    getgenv().sell = bool
+    if bool then 
+        autosell()
+    end
+end})
+
+window:AddDivider()
+
+window:AddToggle({text = "Noob Boss", callback = function(bool)
+    getgenv().nb = false
+        getgenv().nb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().nb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.NoobArena.Boss:GetChildren()) do 
+                game:GetService("Workspace").Arenas.NoobArena.Boss.WaitForChild("Noob")
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Knight Boss", callback = function(bool)
+    getgenv().kb = false
+        getgenv().kb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().kb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.KnightArena.Boss.Knight:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Orc Boss", callback = function(bool)
+    getgenv().ob = false
+        getgenv().ob= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().ob then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.OrcArena.Boss.Orc:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddDivider()
+
+window:AddToggle({text = "Wizard Boss", callback = function(bool)
+    getgenv().wb = false
+        getgenv().wb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().wb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.WizardArena.Boss.Wizard:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Pirate Boss", callback = function(bool)
+    getgenv().pb = false
+        getgenv().pb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().pb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.PirateArena.Boss.Pirate:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Ninja Boss", callback = function(bool)
+    getgenv().nib = false
+        getgenv().nib= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().nib then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.NinjaArena.Boss.Ninja:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddDivider()
+
+window:AddToggle({text = "Undead Boss", callback = function(bool)
+    getgenv().unb = false
+        getgenv().unb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().unb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.UndeadArena.Boss.Undead:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Ice Boss", callback = function(bool)
+    getgenv().icb = false
+        getgenv().icb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().icb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.IceKingArena.Boss["Ice King"]:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Zeus Boss", callback = function(bool)
+    getgenv().zb = false
+        getgenv().zb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().zb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.ZeusArena.Boss.Zeus:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddDivider()
+
+window:AddToggle({text = "Black Knight Boss", callback = function(bool)
+    getgenv().bkb = false
+        getgenv().bkb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().bkb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas["Black KnightArena"].Boss["Black Knight"]:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Grim Reaper Boss", callback = function(bool)
+    getgenv().grb = false
+        getgenv().grb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().grb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas["Grim ReaperArena"].Boss["Grim Reaper"]:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddToggle({text = "Samurai Boss", callback = function(bool)
+    getgenv().sb = false
+        getgenv().sb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().sb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas.SamuraiArena.Boss.Samurai:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+window:AddDivider()
+
+window:AddToggle({text = "Crystal Warlord Boss", callback = function(bool)
+    getgenv().cwb = false
+        getgenv().cwb= bool
+        if bool then 
+            while wait() do 
+                if not getgenv().cwb then break end
+            for i,v in pairs(game:GetService("Workspace").Arenas["Crystal WarlordArena"].Boss["Crystal Warlord"]:GetChildren()) do 
+                if v:IsA("Part") and v.Name == "Head" then
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    else 
+                    return nil
+                end
+            end
+        end
+    end
+end})
+
+
+
+
+
+function autohit()
+    spawn(function()
+        while wait() do
+            if not getgenv().autohit then break end 
+            for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                if v:IsA("Tool") then
+                    v.Parent = game:GetService("Players").LocalPlayer.Character
+                    v:Activate()
+                end
+            end
+            
+             for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+                    if v:IsA("Tool") then
+                    v:Activate()
+                end
+            end
+        end
+    end)
+end
+
+function autosell()
+    spawn(function()
+        while wait() do
+            if not getgenv().sell then break end 
+            for i,v in pairs(game:GetService("Workspace").Sell:GetChildren()) do
+                if v.ClassName == "TouchTransmitter" then
+                firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0)
+                wait(.1)
+                firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1)
+                end
+            end 
+        end 
+    end)
+end
+
+    
+library:Init()
