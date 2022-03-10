@@ -1,0 +1,103 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/uwuware-ui/main/main.lua", true))()
+local window = library:CreateWindow("Farming")
+
+getgenv().layegg = false
+getgenv().destroyegg = false
+
+
+window:AddButton({text = 'Collect wheat', callback = function()
+local old = game.Players.LocalPlayer.Character.HumanoidRootPart
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").FoodFolder.Food.CFrame
+    game:GetService("ReplicatedStorage").Player.AttackSignal:FireServer()
+        if game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.Holder2.Food.FoodAmount.Text == "16/16" then
+        old.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    end
+end})
+
+window:AddButton({text = 'Collect sticks', callback = function()
+    local mt = getrawmetatable(game)
+    local old = mt.__index
+    setreadonly(mt, false)
+    
+    mt.__index = function(a, b)
+    if tostring(a) == "Sticks" then 
+        if tostring(b) == "Value" then 
+            return 16
+        end 
+    end
+        return old(a, b)
+    end
+    setreadonly(mt, true)
+    
+    game:GetService("Players").LocalPlayer.stats.Sticks.Value = 16
+    
+end})
+
+window:AddButton({text = 'Collect stones', callback = function()
+    local mt = getrawmetatable(game)
+    local olds = mt.__index
+    setreadonly(mt, false)
+    
+    mt.__index = function(a, b)
+    if tostring(a) == "Stones" then 
+        if tostring(b) == "Value" then 
+            return 16
+        end 
+    end
+        return olds(a, b)
+    end
+    setreadonly(mt, true)
+    
+    game:GetService("Players").LocalPlayer.stats.Stones.Value = 16
+end})
+
+window:AddDivider()
+
+window:AddToggle({text = "Auto lay eggs", callback = function(bool)
+    getgenv().layegg = bool
+    if bool then 
+        layeggs()
+    end
+end})
+
+window:AddToggle({text = "Destroy all eggs", callback = function(bool)
+    getgenv().destroyegg = bool
+    if bool then 
+        destroyeggs()
+    end
+end})
+
+
+
+
+
+
+
+
+
+function layeggs()
+    spawn(function()
+        while wait() do
+            if not getgenv().layegg then break end 
+            game:GetService("ReplicatedStorage").EggSetup.LayEgg:FireServer(false)
+        end 
+    end)
+end
+
+function destroyeggs()
+    spawn(function()
+        while wait() do
+            if not getgenv().destroyegg then break end 
+            for i,v in pairs(game:GetService("Workspace").PlayerEggs:GetDescendants()) do
+                if v.ClassName == "TouchTransmitter" then
+                firetouchinterest(game.Players.LocalPlayer.Character.Beak, v.Parent, 0)
+                wait(.1)
+                firetouchinterest(game.Players.LocalPlayer.Character.Beak, v.Parent, 1)
+                end
+            end 
+        end 
+    end)
+end
+
+    
+library:Init()
