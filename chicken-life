@@ -1,8 +1,7 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/uwuware-ui/main/main.lua", true))()
 local window = library:CreateWindow("Farming")
 
-getgenv().layegg = false
-getgenv().destroyegg = false
+
 
 
 window:AddButton({text = 'Collect wheat', callback = function()
@@ -30,7 +29,6 @@ window:AddButton({text = 'Collect sticks', callback = function()
     setreadonly(mt, true)
     
     game:GetService("Players").LocalPlayer.stats.Sticks.Value = 16
-    
 end})
 
 window:AddButton({text = 'Collect stones', callback = function()
@@ -54,6 +52,7 @@ end})
 window:AddDivider()
 
 window:AddToggle({text = "Auto lay eggs", callback = function(bool)
+getgenv().layegg = false
     getgenv().layegg = bool
     if bool then 
         layeggs()
@@ -61,6 +60,7 @@ window:AddToggle({text = "Auto lay eggs", callback = function(bool)
 end})
 
 window:AddToggle({text = "Destroy all eggs", callback = function(bool)
+getgenv().destroyegg = false
     getgenv().destroyegg = bool
     if bool then 
         destroyeggs()
@@ -99,5 +99,20 @@ function destroyeggs()
     end)
 end
 
+local UserInputService = game:GetService("UserInputService")
+local niggeruiopen = false
+UserInputService.InputBegan:Connect(function(input, isProcessed)
+    if isProcessed then return end
+        if input.KeyCode == Enum.KeyCode.C then
+            if niggeruiopen == true then
+            niggeruiopen = false
+            game.CoreGui.ScreenGui.Enabled = false
+            elseif niggeruiopen == false then
+            niggeruiopen = true
+            game.CoreGui.ScreenGui.Enabled = true
+        end
+    end
+end)
+    
     
 library:Init()
