@@ -1,0 +1,15 @@
+if game.PlaceId == 4246487209 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/boss-fighting-sim", true))()
+else 
+
+if game.PlaceId == 7167319176 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/chicago-remastered", true))()
+else 
+
+if game.PlaceId == 6149941304 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/chicken-life", true))()
+else 
+print("no game found")
+end
+end
+end
