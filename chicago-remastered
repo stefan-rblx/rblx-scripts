@@ -1,0 +1,23 @@
+getgenv().hitboxexpand = true 
+
+while getgenv().hitboxexpand == true do 
+    wait(5)
+for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do 
+    if v:IsA("Part") and v.Name == "HumanoidRootPart" then 
+      v.Size = Vector3.new(6, 4, 4)
+      v.Transparency = 1
+      v.CanCollide = false
+      game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(1.9, 1.9, 1)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.Transparency = 1
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+      game.Players.LocalPlayer.Character.Humanoid.HipHeight = 1.91
+    else 
+        if getgenv().hitboxexpand == false then 
+        v.Size = Vector3.new(1.9, 1.9, 1)
+        v.Transparency = 1
+    end
+end
+end
+end
+
+-- i know its messy but i did it in like 3 minutes so i dont give a fuck
