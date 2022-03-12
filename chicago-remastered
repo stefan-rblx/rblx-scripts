@@ -5,7 +5,23 @@ end
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/uwuware-ui/main/main.lua", true))()
 local window = library:CreateWindow("Combat")
 local window2 = library:CreateWindow("Teleports")
+local window3 = library:CreateWindow("Farming")
 local healthamount25  = 0
+
+window3:AddToggle({text = "Bartender Farm", callback = function(bool)
+    getgenv().bartender = false
+        getgenv().bartender = bool
+            if bool then 
+                while wait() do
+                    if not getgenv().bartender then break end 
+            local ts = game:GetService("TweenService")
+            local tweenp = ts:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1), {CFrame = CFrame.new(-250.991, 13.2774, -41.775)})
+            tweenp:Play()
+            wait(2)
+            fireclickdetector(game:GetService("Workspace").Map.Jobs.Bartender.BottleGroup.ClickDetector)
+        end
+    end
+end})
 
 window:AddToggle({text = "Aim Assist", callback = function(bool)
 getgenv().aimassist = false
@@ -36,16 +52,23 @@ window:AddSlider({text = 'Health Amount', min = 25, max = 65, callback = functio
 healthamount25  = v
 end})
 
-
-window2:AddButton({text = 'Collect Items', callback = function()
-    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
-        if v:IsA("MeshPart") and v.Name == "Handle" then 
-            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-        end
-      end
+window2:AddToggle({text = "Auto Collect Items", callback = function(bool)
+getgenv().pickup = false
+    getgenv().pickup = bool
+        if bool then 
+            while wait() do
+                if not getgenv().pickup then break end 
+                    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                        if v:IsA("MeshPart") and v.Name == "Handle" then 
+                         v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                        end
+                    end
+                end
+            end  
 end})
 
-window2:AddList({text = 'Locations', values = {'Blox Firearms', 'Bank', 'Corner Store', 'Chicago Cuts', 'Blue Turf', 'ESR', ''}, callback = function(selected)
+
+window2:AddList({text = 'Locations', values = {'Blox Firearms', 'Bank', 'Corner Store', 'Chicago Cuts', 'Blue Turf', 'Black Turf', 'Yellow Turf'}, callback = function(selected)
 game:GetService("TweenService")
 if selected == "Blox Firearms" then
     local tweenss = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1), {CFrame = CFrame.new(108.861, 13.7213, 77.2213)})
@@ -68,8 +91,13 @@ else
     tweena:Play()
 else 
     if selected == "Black Turf" then 
-    local tweenas = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1), {CFrame = CFrame.new(51.7088, 3.22444, -196.444)})
+    local tweenas = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1), {CFrame = CFrame.new(36.0513, 12.8152, -205.472)})
     tweenas:Play()
+else 
+    if selected == "Yellow Turf" then 
+    local tweenas = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1), {CFrame = CFrame.new(41.1486, 16.9758, -42.537)})
+    tweenas:Play()
+end
 end
 end
 end
@@ -98,10 +126,10 @@ end})
 
 function aimassist()
     spawn(function()
-        while wait(10) do
+        while wait(3.2) do
     for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do 
     if v:IsA("Part") and v.Name == "HumanoidRootPart" then 
-        wait(1)
+        wait(.1)
       v.Size = Vector3.new(6, 4, 4)
       v.Transparency = 1
       v.CanCollide = false
