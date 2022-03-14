@@ -1,15 +1,17 @@
-if game.PlaceId == 4246487209 then
+if game.PlaceId == 4246487209 then -- bfs
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/boss-fighting-sim", true))()
 else 
-
-if game.PlaceId == 7167319176 then
+if game.PlaceId == 7167319176 then -- chicago
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/chicago-remastered", true))()
 else 
-
-if game.PlaceId == 6149941304 then
+if game.PlaceId == 6149941304 then -- chicken life
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/chicken-life", true))()
 else 
+if game.PlaceId == 2474168535 then -- westbound
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/westbound", true))()
+else
 print("no game found")
+end
 end
 end
 end
