@@ -1,0 +1,118 @@
+if game.CoreGui:FindFirstChild("ScreenGui") then
+    game.CoreGui["ScreenGui"]:Destroy()
+end
+
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/uwuware-ui/main/main.lua", true))()
+local window = library:CreateWindow("Combat")
+local window2 = library:CreateWindow("Movement")
+local mt = getrawmetatable(game)
+local old_index = mt.__index
+
+window2:AddButton({text = 'No Ragdoll', callback = function()
+    game.Players.LocalPlayer.Character.Ragdolled:Destroy()
+end})
+
+window2:AddButton({text = 'Horse Stamina', callback = function()
+setreadonly(mt, false)
+mt.__index = function(a, b)
+    if tostring(a) == "CurrentStamina" then
+        if tostring(b) == "Value" then
+          return 100000
+          end
+   end
+   return old_index(a, b)
+end
+end})
+
+window2:AddSlider({text = 'Walkspeed', min = 16, max = 85, callback = function(v)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+if game:GetService("Workspace").naptorian.WalkState.Value == "Sprinting" then 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end
+end})
+
+
+window:AddButton({text = 'Respawn', callback = function()
+    local ohNil1 = nil
+    local ohBoolean2 = true
+    
+    game:GetService("ReplicatedStorage").GeneralEvents.Spawn:FireServer(ohNil1, ohBoolean2)
+end})
+
+window:AddToggle({text = "Aim Assist", callback = function(bool)
+    getgenv().aimassist = false
+        getgenv().aimassist = bool
+            if bool then 
+       aimassist()
+    end
+end})
+
+window:AddToggle({text = "Infinite Ammo", callback = function(bool)
+    getgenv().infammo = false
+        getgenv().infammo = bool
+            if bool then 
+            while wait(1) do
+                for i,v in pairs(game:GetService("Players").LocalPlayer.Consumables:GetChildren()) do
+                    if v:IsA("IntValue") then
+                        v.Value = 5000
+                     end
+                 end   
+            if getgenv().infammo == false then
+                for i,v in pairs(game:GetService("Players").LocalPlayer.Consumables:GetChildren()) do
+                    if v:IsA("IntValue") then
+                    v.Value = 100
+                end
+            end   
+        end
+    end
+end
+end})
+
+
+function aimassist()
+spawn(function()
+while wait(3.2) do
+    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do 
+        if v:IsA("MeshPart") and v.Name == "LowerTorso" then 
+            v.Size = Vector3.new(6, 4, 4)
+            v.Transparency = 1
+            v.CanCollide = false
+            game.Players.LocalPlayer.Character.LowerTorso.Size = Vector3.new(2, 0.400055, 1)
+            game.Players.LocalPlayer.Character.LowerTorso.Transparency = 1
+            game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+                    if getgenv().aimassist == false then
+                        v.Size = Vector3.new(2, 0.400055, 1)
+                    end
+                end
+            end
+        end 
+    end)
+end
+  
+local UserInputService = game:GetService("UserInputService")
+local niggeruiopen = false
+UserInputService.InputBegan:Connect(function(input, isProcessed)
+    if isProcessed then return end
+        if input.KeyCode == Enum.KeyCode.Z then
+            if niggeruiopen == true then
+            niggeruiopen = false
+            game.CoreGui.ScreenGui.Enabled = false
+            elseif niggeruiopen == false then
+            niggeruiopen = true
+            game.CoreGui.ScreenGui.Enabled = true
+        end
+    end
+end)
+
+library:Init()
+  
+setreadonly(mt, false)
+mt.__index = function(a, b)
+if tostring(a) == "Humanoid" then
+    if tostring(b) == "WalkSpeed" then
+        return 16
+        end
+        end
+    return old_index(a, b)
+end
