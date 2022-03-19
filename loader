@@ -10,7 +10,10 @@ else
 if game.PlaceId == 2474168535 then -- westbound
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/westbound", true))()
 else
+if game.PlaceId == 6403373529 then -- slap battles
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/slap-battles", true))()  
 print("no game found")
+end
 end
 end
 end
