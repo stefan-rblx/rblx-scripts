@@ -11,8 +11,12 @@ if game.PlaceId == 2474168535 then -- westbound
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/westbound", true))()
 else
 if game.PlaceId == 6403373529 then -- slap battles
-loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/slap-battles", true))()  
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/slap-battles", true))()
+else
+if game.PlaceId == 8396586868 then -- one piece game
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/one-piece-game", true))()  
 print("no game found")
+end
 end
 end
 end
