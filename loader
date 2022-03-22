@@ -15,7 +15,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scri
 else
 if game.PlaceId == 8396586868 then -- one piece game
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/one-piece-game", true))()  
+else
+if game.PlaceId == 5698907818 then -- zombie game
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/zombie-game", true))()  
 print("no game found")
+else
+end
 end
 end
 end
