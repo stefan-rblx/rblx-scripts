@@ -1,0 +1,80 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-ui/main/%E3%85%A4", true))()
+local plr = game:GetService("Players").LocalPlayer
+local character = plr.Character
+
+local windows = {
+    farming = library:CreateWindow("Farming"),
+    teleports = library:CreateWindow("Teleports")
+}
+
+windows.farming:AddToggle({text = "Auto Collect", callback = function(bool)
+getgenv().collect = false
+getgenv().collect = bool
+    if bool then 
+        collect()
+    end
+end})
+
+windows.farming:AddToggle({text = "Auto Paycheck", callback = function(bool)
+getgenv().autopaycheck = false
+getgenv().autopaycheck = bool
+    if bool then 
+        paycheck()
+    end
+end})
+
+windows.teleports:AddList({text = 'Locations', values = {'Spawn', 'Bank', 'Fire Department', 'Gun Store', 'Family Jewels', 'Safe Spot'}, callback = function(selected)
+if selected == "Spawn" then
+        character.HumanoidRootPart.CFrame = CFrame.new(-448, 23, 702)
+    else
+if selected == "Bank" then
+        character.HumanoidRootPart.CFrame = CFrame.new(-1002, 23, 458)
+    else
+if selected == "Fire Department" then
+        character.HumanoidRootPart.CFrame = CFrame.new(-991, 23, 65)
+    else
+if selected == "Gun Store" then
+        character.HumanoidRootPart.CFrame = CFrame.new(-1253, 23, -190)
+    else
+if selected == "Family Jewels" then
+        character.HumanoidRootPart.CFrame = CFrame.new(-467, 23, -411)
+    else   
+if selected == "Safe Spot" then
+        character.HumanoidRootPart.CFrame = CFrame.new(355, -16, 894)
+    else          
+
+end
+end    
+end
+end
+end
+end
+end})
+
+
+function collect()
+    while wait(.1) do
+        if not getgenv().collect then break end
+        local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+            if v:IsA("Part") and v.Name == "MoneyBill" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+            end
+        end
+    end  
+end
+
+function paycheck()
+    while wait(.1) do
+        if not getgenv().autopaycheck then break end
+        character.HumanoidRootPart.CFrame = CFrame.new(-1069, 23, 463)
+        wait(2)
+        keypress(0x45)
+        wait(1)
+        keyrelease(0x45)
+        firesignal(game:GetService("Players").LocalPlayer.PlayerGui.GameMenus.StartJob.Screen1.Accept.MouseButton1Down)
+    end  
+end
+
+library:Init()
