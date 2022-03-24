@@ -18,8 +18,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scri
 else
 if game.PlaceId == 5698907818 then -- zombie game
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/zombie-game", true))()  
-print("no game found")
 else
+if game.PlaceId == 2534724415 then -- erlc
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/erlc", true))()  
+else    
+print("no game foun")
+end
 end
 end
 end
