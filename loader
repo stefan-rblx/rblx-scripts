@@ -24,7 +24,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scri
 else
 if game.PlaceId == 8357510970 then -- anime punch sim
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/anime-punching-sim", true))()  
-else    
+else
+if game.PlaceId == 6924952561 then -- clover city
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/clover-city", true))()  
+else  
 print("no game foun")
 end
 end
