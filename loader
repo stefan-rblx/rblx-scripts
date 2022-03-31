@@ -27,7 +27,16 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scri
 else
 if game.PlaceId == 6924952561 then -- clover city
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/clover-city", true))()  
-else  
+else
+if game.PlaceId == 4282985734 then -- combat warriors
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/combat-warriors", true))()  
+else
+if game.PlaceId == 292439477 then -- phantom forces
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/phantom-forces", true))()  
+else
+if game.PlaceId == 8811271345 then -- clover city
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/craftwars", true))()  
+else
 print("no game foun")
 end
 end
@@ -38,4 +47,7 @@ end
 end
 end
 end
+end
+end 
+end 
 end
