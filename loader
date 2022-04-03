@@ -34,10 +34,14 @@ else
 if game.PlaceId == 292439477 then -- phantom forces
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/phantom-forces", true))()  
 else
-if game.PlaceId == 8811271345 then -- clover city
+if game.PlaceId == 8811271345 then -- craft wars
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/craftwars", true))()  
 else
+if game.PlaceId == 2753915549 then -- blox fruits
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/blox-fruits", true))()  
+else
 print("no game foun")
+end
 end
 end
 end
