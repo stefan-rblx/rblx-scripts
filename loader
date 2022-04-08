@@ -40,7 +40,11 @@ else
 if game.PlaceId == 2753915549 then -- blox fruits
 loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/blox-fruits", true))()  
 else
+if game.PlaceId == 8448735476 then -- anime rifts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/main/anime-rifts", true))()  
+else
 print("no game foun")
+end
 end
 end
 end
