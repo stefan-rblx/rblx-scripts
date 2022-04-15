@@ -1,4 +1,8 @@
 --Settings--
+local r = 0 
+local g = 0 
+local b = 0
+
 local ESP = {
     Enabled = false,
     Boxes = false,
@@ -16,6 +20,8 @@ local ESP = {
     Objects = setmetatable({}, {__mode="kv"}),
     Overrides = {}
 }
+
+
 
 --Declarations--
 local cam = workspace.CurrentCamera
