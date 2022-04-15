@@ -1,14 +1,10 @@
 --Settings--
-local r = 0 
-local g = 0 
-local b = 0
-
 local ESP = {
     Enabled = false,
     Boxes = false,
     BoxShift = CFrame.new(0,-1.5,0),
-	BoxSize = Vector3.new(4,6,0),
-    Color = Color3.fromRGB(r,g,b),
+    BoxSize = Vector3.new(4,6,0),
+    Color = Color3.fromRGB(255,255,255),
     FaceCamera = false,
     Names = true,
     TeamColor = true,
