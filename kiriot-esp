@@ -1,16 +1,16 @@
 --Settings--
 local ESP = {
-    Enabled = true,
+    Enabled = false,
     Boxes = false,
     BoxShift = CFrame.new(0,-1.5,0),
-	  BoxSize = Vector3.new(4,6,0),
+	BoxSize = Vector3.new(4,6,0),
     Color = Color3.fromRGB(45, 43, 50),
     FaceCamera = false,
     Names = true,
     TeamColor = true,
-    Thickness = 1,
+    Thickness = 2,
     AttachShift = 1,
-    TeamMates = false,
+    TeamMates = true,
     Players = true,
     
     Objects = setmetatable({}, {__mode="kv"}),
@@ -230,7 +230,7 @@ function boxBase:Update()
             
             self.Components.Distance.Visible = true
             self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
-            self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) ..""
+            self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .."m away"
             self.Components.Distance.Color = color
         else
             self.Components.Name.Visible = false
@@ -293,14 +293,14 @@ function ESP:Add(obj, options)
 		Color = box.Color,
 		Center = true,
 		Outline = true,
-        Size = 15,
+        Size = 19,
         Visible = self.Enabled and self.Names
 	})
 	box.Components["Distance"] = Draw("Text", {
 		Color = box.Color,
 		Center = true,
 		Outline = true,
-        Size = 14,
+        Size = 19,
         Visible = self.Enabled and self.Names
 	})
 	
