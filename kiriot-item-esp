@@ -6,7 +6,7 @@ local ESP = {
     BoxSize = Vector3.new(4,6,0),
     Color = Color3.fromRGB(255,255,255),
     FaceCamera = false,
-    Names = false,
+    Names = true,
     TeamColor = true,
     Thickness = 2,
     AttachShift = 1,
@@ -295,17 +295,9 @@ function ESP:Add(obj, options)
 		Color = box.Color,
 		Center = true,
 		Outline = true,
-        Size = 19,
+        Size = 15,
         Visible = self.Enabled and self.Names
 	})
-	box.Components["Distance"] = Draw("Text", {
-		Color = box.Color,
-		Center = true,
-		Outline = true,
-        Size = 19,
-        Visible = self.Enabled and self.Names
-	})
-	
 	box.Components["Tracer"] = Draw("Line", {
 		Thickness = ESP.Thickness,
 		Color = box.Color,
