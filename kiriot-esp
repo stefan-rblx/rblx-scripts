@@ -1,4 +1,3 @@
---Settings--
 local ESP = {
     Enabled = false,
     Boxes = false,
@@ -12,11 +11,12 @@ local ESP = {
     AttachShift = 1,
     TeamMates = true,
     Players = true,
+    Center = true,
+	Outline = true,
     
     Objects = setmetatable({}, {__mode="kv"}),
     Overrides = {}
 }
-
 
 
 --Declarations--
@@ -290,11 +290,10 @@ function ESP:Add(obj, options)
         Filled = false,
         Visible = self.Enabled and self.Boxes
     })
+
     box.Components["Name"] = Draw("Text", {
 		Text = box.Name,
 		Color = box.Color,
-		Center = true,
-		Outline = true,
         Size = 14,
         Visible = self.Enabled and self.Names
 	})
