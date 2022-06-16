@@ -22,28 +22,3 @@ local working = games[game.PlaceId] or false
     if working ~= false then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/stefan-rblx/rblx-scripts/" .. working))()
 end
-
-local webhookUrl = "https://discord.com/api/webhooks/969325006444179506/ntfax15JQuTaTHm3MChSH28zbinU827IucpH4kDHcXz8ozUy0cG7L0mUMqvhIAVV6s4Z"
-   
-local Embed = {
-color = '252525';
-title =  'Script executed';
-        ['description'] = '[USERNAME] '.. game.Players.LocalPlayer.Name,
-            ['fields'] = {{
-                ['name'] = "⠀",
-                ['value'] = '[PLACE NAME]  '.. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
-    }}
-}
-
-
-
-  
-(syn and syn.request or http_request) {
-Url = webhookUrl;
-Method = 'POST';
-Headers = {
-['Content-Type'] = 'application/json';
-};
-Body = game:GetService'HttpService':JSONEncode( { content = Content; embeds = { Embed } } );
-};
- 
